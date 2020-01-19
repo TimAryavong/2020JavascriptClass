@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<title>Javascript Assignment</title>
+</head>
+<body class="panel panel-body">
+	<h1 class="panel-header">COMP1073 - Client-Side JavaScript Assignment 1</h1> <br>
+	<div>
+	<p>Q1: Write a JavaScript program to check two numbers and return true if one of the number is 100 or if the sum of two numbers is 100.</p>
+		<p id="isThere100">Is There 100?</p> <!-- Paragraph to display result -->
+		Number 1: <input type="text" id="num1"><br> <!-- First number input field -->
+		Number 2: <input type="text" id="num2"><br> <!-- Second number input field -->
+		<input type="submit" onclick="hundred()" value="True or False?">  <!-- Button to perform function -->	
+	  	<script type="text/javascript"> /*Function to get input values and check if values are 100 or sum 100, changes Paragraph content to True or False.*/
+		  	function hundred()
+		  	{
+				var num1 = parseInt(document.getElementById("num1").value);		/*Get num1 as an int*/
+				var num2 = parseInt(document.getElementById("num2").value);		/*Get num2 as an int*/
+				var result = parseInt(num1 + num2);		/*Get result*/
+				if (result == 100 || num1 == 100 || num2 == 100)		/*if result is 100 or if either num1 or num2 is 100*/
+					{	
+						document.getElementById("isThere100").innerHTML = "True";		/*Yes there is 100*/
+					}
+				else
+					{
+						document.getElementById("isThere100").innerHTML = "False";		/*No there is no 100*/
+					}
+			}
+		</script>
+	</div> <br>
+	<div>
+		<p>Q2: Write a JavaScript program to create a new string from a given string taking the first 3 characters & the last 3 characters of a string and adding them together. The string length must be 3 or more, if not, the original string is returned.</p>
+		<p id="splicer">String Splicer</p>
+		String: <input type="text" id="splice"><br> <!-- First string input field -->
+		<input type="submit" onclick="splicer()" value="Splice?">  <!-- Button to perform function -->
+		<script type="text/javascript">
+			function splicer()
+			{
+				var inStr = document.getElementById("splice").value;		/*Get input string*/
+				if(inStr.length >= 3)		/*Will only run these statements if inStr length is greater than or equal to 3*/
+				{
+					var slice1 = inStr.slice(0,3);		/*Get first 3 chars of inString*/
+					var slice2 = inStr.slice(-3);		/*Get last 3 chars of inString*/
+					var newStr = slice1+slice2; 		/*newStr */
+					document.getElementById("splicer").innerHTML = newStr;		/*Show new string*/
+				}
+				else		/*input string is too short to splice*/
+				{
+					document.getElementById("splicer").innerHTML = inStr;		/*Show original string*/
+				}
+			}
+		</script>
+	</div> <br>
+	<div>
+		<p>Q3: Write a JavaScript program to extract the first half of a string of even length.</p>
+		<p id="chopper">String Chopper</p>
+		String: <input type="text" id="chop"><br>
+		<input type="submit" onclick="chopper()" value="Chop?">  <!-- Button to perform function -->
+		<script type="text/javascript">
+			function chopper()
+			{
+				var inStr = document.getElementById("chop").value;		/*Get input string*/
+				if(inStr.length % 2 == 0)		/*If modulus 2 result equal to 0 then string is even.*/
+				{
+					var halfStr = parseInt(inStr.length / 2);		/*Get half string length*/
+					var cutStr = inStr.substr(0, halfStr);		/*Get half of the string*/
+					document.getElementById("chopper").innerHTML = cutStr;
+				}
+				else		/*String length is odd*/
+				{
+					document.getElementById("chopper").innerHTML = "Your string is odd, it won't be chopped." ; /*Returns your string is odd*/
+				}
+			}
+		</script>
+	</div> <br>
+	<div>
+		<p>Q4: Write a JavaScript Program to concatenate two strings except their first character.</p>
+		<p id="fusion">String Fusion</p>
+		String 1: <input type="text" id="fuse1"><br>
+		String 2: <input type="text" id="fuse2"><br>
+		<input type="submit" onclick="fusion()" value="Fuse?">
+		<script>
+			function fusion()
+			{
+				var inStr1 = document.getElementById("fuse1").value;		/*Get the input strings*/
+				var inStr2 = document.getElementById("fuse2").value;
+				var sub1 = inStr1.substr(1);		/*Get substrings omitting the first character*/
+				var sub2 = inStr2.substr(1);
+				document.getElementById("fusion").innerHTML = sub1.concat(sub2);		/*Return to the document, the concatenation of the substrings*/
+			}
+		</script>
+	</div> <br>
+</body>
+<footer class="panel panel-footer">Tim Aryavong 200176280 200176280@student.georgianc.on.ca</footer>
+</html>
